@@ -109,7 +109,6 @@ function admin_enqueue_scripts() {
 			$( "#_display_as_mnm" ).on( "change", function(e) {
 				if ( "variable"  === $("#product-type").val() ) {
 					if ( $(this).prop("checked") ) {
-						$( ".mnm_options_options.mnm_options_tab > a" ).trigger( "click" );
 						$( ".product_data_tabs .mnm_options_tab" ).show();
 						$( "#mnm_allowed_contents_options_variations" ).show();
 						$( "#mnm_allowed_contents_options" ).hide();
@@ -120,8 +119,12 @@ function admin_enqueue_scripts() {
 						$( "#mnm_allowed_contents_options_variations" ).hide();
 						$( "#mnm_allowed_contents_options" ).show();
 						$("#mnm_product_data").hide();
-						$( ".product_data_tabs .general_options a" ).trigger( "click" );
 						$( "#general_product_data .options_group.pricing" ).hide();
+						
+						// If on MNM panel when disabling... switch to first visible tab.
+						if ( $(".product_data").children(".woocommerce_options_panel:visible").length === 0 ) {
+						   $( ".wc-tabs li:visible:first > a" ).trigger( "click" );
+						}
 					}
 				} else {
 					$( "#mnm_allowed_contents_options" ).show();
