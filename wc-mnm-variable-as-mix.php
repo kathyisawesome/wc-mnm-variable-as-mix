@@ -131,11 +131,7 @@ function admin_enqueue_scripts() {
 				}
 			});
 
-			$( document.body ).on( "woocommerce-product-type-change", function( event, select_val ) {
-				if ( "variable"  === select_val ) {
-					$( "#_display_as_mnm" ).change();
-				}
-			});
+			$( "#_display_as_mnm" ).trigger( "change" );
 
 		});
 
