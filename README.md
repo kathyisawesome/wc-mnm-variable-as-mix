@@ -1,4 +1,4 @@
-# WooCommerce Mix and Match -  Variations as Mix
+# WooCommerce Mix and Match -  Variable as Mix
 
 ### What's This?
 
